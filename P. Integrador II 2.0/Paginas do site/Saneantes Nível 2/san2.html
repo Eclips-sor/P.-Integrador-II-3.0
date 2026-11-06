@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misturas favoritas</title>
+    <link rel="stylesheet" href="san2.css">
+</head>
+<body>
+    <nav class="menu">
+        <div class="botoes-categoria">
+            <a href="../Calculadora de Misturas/calc.html" class="botao-calc">
+                <img class="menu-icon" src="../Icons/calculadora-icon.png" alt="">
+                <p class="texto-botoes-menu">Calculadora de<br>Misturas</p>
+            </a>
+            <a href="../Misturas Perigosas/perigosa.html" class="botao-perigosa">
+                    <img class="menu-icon" src="../Icons/Perigo-Icon.png" alt="">
+                    <p class="texto-botoes-menu">Misturas<br>perigosas</p>
+            </a>
+            <a href="../Misturas Eficazes/eficaz.html" class="botao-eficaz">
+                <img class="menu-icon" src="../Icons/Eficaz-icon.png" alt="">
+                <p class="texto-botoes-menu">Misturas<br>eficazes</p>
+            </a>
+            <a href="../Saneantes Nível 1/san1.html" class="botao-san-1">
+                <img class="menu-icon" src="../Icons/UmCianoEscuro.png" alt="">
+                <p class="texto-botoes-menu">Saneantes <br> Nível 1</p>
+            </a>
+            <a href="../Saneantes Nível 2/san2.html" class="botao-san-2">
+                <img class="menu-icon" src="../Icons/DoisRoxoEscuro.png" alt="">
+                <p class="texto-botoes-menu">Saneantes <br> Nível 2</p>
+            </a>
+        </div>
+    </nav>
+    <header>
+        <button class="botao-menu"><img class="botao-menu-img" src="../Icons/Botao-menu-hamburguer.png" alt=""></button>
+        <div class="direita-header">
+            <a class="botao-voltar" href="../../Pagina inicial/inicial.html"><img class="icon-mais" src="../Icons/Seta-voltar.png" alt=""></a>
+            <a class="botao-voltar" href=""><img class="icon-mais" src="../Icons/Mais.png" alt=""></a>
+            <img src="../Icons/Logo claro.png" alt="Logo" class="logoheader">
+        </div>
+    </header>  
+
+    <div class="caixa-titulo">
+        <img class="icon-titulo" src="../Icons/DoisRoxoEscuro.png" alt="">
+        <div class="container-titulo">
+            <h1 class="titulo-perigosa">Saneantes <span style="color: #5d2a7c; font-weight: 700;">Nível 2</span></h1>
+            <p class="p-titulo">São aqueles que possuem potencial de risco moderado a alto à saúde humana e ao meio ambiente</p>
+        </div>
+    </div>
+    <div class="busca">
+        <input type="text" id="input-busca" placeholder="🔍︎ Digite um produto de limpeza" class="barra-de-pesquisa">
+    </div>
+
+    <div class="container-misturas">
+        <div class="caixa">
+            <div class="titulo-mistura">
+                <h1>Título 1</h1>
+            </div>
+            <div class="conteiner-info">
+                <div class="periculosidade">
+                    <p class="p-dentro">Nível de periculosidade:</p>
+                    <p>X</p>
+                </div>
+                <div class="marca">
+                    <p class="p-dentro">Marca do produto:</p>
+                    <p>Marca</p>
+                </div>
+                <div class="componente">
+                    <p class="p-dentro">Componente ativo:</p>
+                    <p>Componente</p>
+                </div>
+                <div class="pode-ser">
+                    <p class="p-dentro">Pode ser misturado:</p>
+                    <p>S/N</p>
+                </div>
+            </div>
+        </div>
+        <div class="caixa">
+            <div class="titulo-mistura">
+                <h1>Título 1</h1>
+            </div>
+            <div class="conteiner-info">
+                <div class="periculosidade">
+                    <p class="p-dentro">Nível de periculosidade:</p>
+                    <p>X</p>
+                </div>
+                <div class="marca">
+                    <p class="p-dentro">Marca do produto:</p>
+                    <p>Marca</p>
+                </div>
+                <div class="componente">
+                    <p class="p-dentro">Componente ativo:</p>
+                    <p>Componente</p>
+                </div>
+                <div class="pode-ser">
+                    <p class="p-dentro">Pode ser misturado:</p>
+                    <p>S/N</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="san2.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../supabase.js"></script>
+<script src="san2.js"></script>
+</body>
+</html>

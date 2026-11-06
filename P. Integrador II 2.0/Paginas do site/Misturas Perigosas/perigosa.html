@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misturas favoritas</title>
+    <link rel="stylesheet" href="perigosa.css">
+</head>
+<body>
+    <nav class="menu">
+        <div class="botoes-categoria">
+            <a href="../Calculadora de Misturas/calc.html" class="botao-calc">
+                <img class="menu-icon" src="../Icons/calculadora-icon.png" alt="">
+                <p class="texto-botoes-menu">Calculadora de<br>Misturas</p>
+            </a>
+            <a href="../Misturas Perigosas/perigosa.html" class="botao-perigosa">
+                    <img class="menu-icon" src="../Icons/Perigo-Icon.png" alt="">
+                    <p class="texto-botoes-menu">Misturas<br>perigosas</p>
+            </a>
+            <a href="../Misturas Eficazes/eficaz.html" class="botao-eficaz">
+                <img class="menu-icon" src="../Icons/Eficaz-icon.png" alt="">
+                <p class="texto-botoes-menu">Misturas<br>eficazes</p>
+            </a>
+            <a href="../Saneantes Nível 1/san1.html" class="botao-san-1">
+                <img class="menu-icon" src="../Icons/UmCianoEscuro.png" alt="">
+                <p class="texto-botoes-menu">Saneantes <br> Nível 1</p>
+            </a>
+            <a href="../Saneantes Nível 2/san2.html" class="botao-san-2">
+                <img class="menu-icon" src="../Icons/DoisRoxoEscuro.png" alt="">
+                <p class="texto-botoes-menu">Saneantes <br> Nível 2</p>
+            </a>
+        </div>
+    </nav>
+    <header>
+        <button class="botao-menu"><img class="botao-menu-img" src="../Icons/Botao-menu-hamburguer.png" alt=""></button>
+        <div class="direita-header">
+            <a class="botao-voltar" href="../Pagina Mistura Favorita/favorita.html"> <img class="icon-mais" src="../Icons/Seta-voltar.png" alt=""></a>
+            <a class="botao-voltar" href="../Pagina Mistura Favorita/favorita.html"> <img class="icon-mais" src="../Icons/Mais.png" alt=""></a>
+            <img src="../Icons/Logo claro.png" alt="Logo" class="logoheader">
+        </div>
+    </header>
+    
+    <div class="caixa-titulo">
+        <img class="icon-titulo" src="../Icons/Perigo-Icon.png" alt="">
+        <div class="container-titulo">
+            <h1 class="titulo-perigosa">Misturas <span style="color: rgb(255, 0, 0); font-weight: 700;">perigosas!</span></h1>
+            <p class="p-titulo">Algumas misturas de produtos de limpeza podem ser muito perigosas. Confira abaixo os exemplos de combinações que devem ser evitadas.</p>
+        </div>
+    </div>
+    <div class="busca">
+        <input type="text" id="input-busca" placeholder="🔍︎ Digite um produto de limpeza" class="barra-de-pesquisa">
+    </div>
+
+    <div class="container-misturas">
+        <div class="caixa">
+            <div class="titulo-mistura">
+                <h1>Título 1</h1>
+            </div>
+            <div class="conteiner-info">
+                <div class="produtos">
+                    <ul>
+                        <li>Produto 1</li>
+                        <li>Produto 2</li>
+                    </ul>
+                </div>
+                <div class="texto">
+                    O que acontece: lorem ipsum dolor sit amet, consectetur adipsiscing alit.
+                </div>
+                <div class="container-texto-botao">
+                    <div class="texto-porque">
+                        Por que é perigoso: lorem ipsum dolor sit amet, consectetur adipsiscing alit.
+                    </div>
+                    <button class="botao-mais-2">
+                       <img class="icon-mais" src="../Icons/Mais-vermelho.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="caixa">
+            <div class="titulo-mistura">
+                <h1>Título 2</h1>
+            </div>
+            <div class="conteiner-info">
+                <div class="produtos">
+                    <ul>
+                        <li>Produto 1</li>
+                        <li>Produto 2</li>
+                    </ul>
+                </div>
+                <div class="texto">
+                    <b>O que acontece:</b> lorem ipsum dolor sit amet, consectetur adipsiscing alit.
+                </div>
+                <div class="container-texto-botao">
+                    <div class="texto-porque">
+                        <b>Por que é eficaz:</b> lorem ipsum dolor sit amet, consectetur adipsiscing alit.
+                    </div>
+                    <button class="botao-mais-2">
+                       <img class="icon-mais" src="../Icons/Mais-vermelho.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="perigosa.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../supabase.js"></script>
+<script src="perigosa.js"></script>
+</body>
+</html>
