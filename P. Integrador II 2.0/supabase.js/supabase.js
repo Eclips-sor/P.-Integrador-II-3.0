@@ -1,5 +1,4 @@
 // Este arquivo e carregado pelas paginas HTML antes dos scripts de cada pagina.
-// A URL do cliente deve ser a URL base do projeto, sem "/rest/v1/".
 const SUPABASE_URL = "https://snatjdxscznrfzvqkxlr.supabase.co";
 const SUPABASE_KEY = "sb_publishable_HWTUIDoeuY4RCa33P6aaWQ_MzL2AN5O";
 
@@ -11,6 +10,9 @@ window.supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY,
     {
+        db: {
+            schema: 'public'
+        },
         auth: {
             autoRefreshToken: true,
             persistSession: true,

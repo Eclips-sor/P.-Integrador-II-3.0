@@ -5,25 +5,106 @@ botaoMenu.addEventListener('click', () => {
     menu.classList.toggle('aberto');
 });
 
-// sistema de busca melhorado ~~Isa//
 const campoBusca = document.getElementById('input-busca');
-const caixas = document.querySelectorAll('.container-misturas .caixa');
 campoBusca.addEventListener('input', () => {
-    const textoDigitado = campoBusca.value
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-    console.log("Buscando por:", textoDigitado);
-    caixas.forEach((caixa) => {
-        const titulo = caixa.querySelector('.titulo-mistura h1').textContent
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-        if (titulo.startsWith(textoDigitado)) {
-            caixa.style.display = "";
-        } else {
-            caixa.style.display = "none";
-        }
-    });
+    filtrarSaneantes(campoBusca.value);
 });
+
+function normalizarTexto(texto) {
+    return texto
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+}
+
+function filtrarSaneantes(texto) {
+    const textoNormalizado = normalizarTexto(texto);
+    const caixas = document.querySelectorAll('.container-misturas .caixa');
+
+    caixas.forEach((caixa) => {
+        const titulo = normalizarTexto(
+            caixa.querySelector('.titulo-mistura h1').textContent
+        );
+        caixa.style.display = titulo.includes(textoNormalizado) ? '' : 'none';
+    });
+}
+
+function criarInformacaoClasse(classe, rotulo, valor) {
+    const elemento = document.createElement('div');
+    elemento.className = classe;
+
+    const rotuloElemento = document.createElement('p');
+    rotuloElemento.className = 'p-dentro';
+    rotuloElemento.textContent = `${rotulo}:`;
+
+    const valorElemento = document.createElement('p');
+    valorElemento.textContent = valor || 'Não informado';
+
+    elemento.append(rotuloElemento, valorElemento);
+    return elemento;
+}
+
+function criarCardSaneante(saneante) {
+    const caixa = document.createElement('div');
+    caixa.className = 'caixa';
+
+    const titulo = document.createElement('div');
+    titulo.className = 'titulo-mistura';
+
+    const nome = document.createElement('h1');
+    nome.textContent = saneante.nome;
+    titulo.append(nome);
+
+    const informacoes = document.createElement('div');
+    informacoes.className = 'conteiner-info';
+    informacoes.append(
+        criarInformacaoClasse(
+            'periculosidade',
+            'Nível de periculosidade',
+            saneante.nível
+        ),
+        criarInformacaoClasse('marca', 'Marca do produto', saneante.marca),
+        criarInformacaoClasse(
+            'pode-ser',
+            'Pode ser misturado',
+            saneante.misturar
+        )
+    );
+
+    caixa.append(titulo, informacoes);
+    return caixa;
+}
+
+async function carregarSaneantes() {
+    const container = document.querySelector('.container-misturas');
+    const status = document.getElementById('saneantes-status');
+
+    try {
+        const resposta = await window.supabaseClient
+            .from('saneantes')
+            .select('id, nome, marca, nível, misturar')
+            .eq('nível', 2)
+            .order('nome');
+
+        if (resposta.error) {
+            throw resposta.error;
+        }
+
+        container.replaceChildren();
+
+        if (!resposta.data.length) {
+            status.textContent = 'Nenhum saneante de nível 2 foi encontrado.';
+            container.append(status);
+            return;
+        }
+
+        resposta.data.forEach((saneante) => {
+            container.append(criarCardSaneante(saneante));
+        });
+    } catch (error) {
+        console.error('Falha ao carregar saneantes:', error);
+        status.textContent = 'Não foi possível carregar os saneantes.';
+    }
+}
+
+carregarSaneantes();
